@@ -1,0 +1,119 @@
+$darkgrey: #292929;
+$white: #fefefe;
+$validation-color: #62d362;
+$bp-mobile: 470px;
+
+*{
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+  font-family: sans-serif;
+  transition: all .3s;
+}
+
+#map{
+  width: 100%; 
+  height: 100vh;
+  cursor: crosshair;
+}
+
+.copied_msg{
+  position: absolute;
+  z-index: 1000;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: .5rem 2rem;
+  border-radius: .3rem;
+  background-color: transparent;
+  color: transparent;
+  text-align: center;
+  pointer-events: none;
+
+  &.visible{
+    background-color: rgba($validation-color, .9);
+    color: $white;
+  }
+}
+
+.coords_box{
+  position: absolute;
+  z-index: 1000;
+  top: 3rem;
+  right: 3rem;
+  background-color: $darkgrey;
+  color: $white;
+  padding: 1rem 2rem;
+  border-radius: .5rem;
+
+  .mobile_arrow{
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 20px;
+    width: 30%;
+    font-size: large;
+    background-color: inherit;
+    border-radius: .5rem .5rem 0 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1{
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .form{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    .form_group{
+      display: flex;
+      flex-direction: column;
+      margin: .7rem 0;
+
+      label{
+        margin-bottom: .4rem;
+      }
+
+      input{
+        position: relative;
+        cursor: pointer;
+        font-size: large;
+        padding: .3rem .5rem;
+        outline: none;
+        border: none;
+
+        &:focus{
+          box-shadow: 0 0 5px $validation-color;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $bp-mobile){
+  .coords_box{
+    left: 0;
+    right: 0;
+    // top: 100%;
+    top: unset;
+    bottom: 0;
+    transition: .3s;
+    transform: translateY(100%);
+
+    .mobile_arrow{
+      display: flex;
+    }
+
+    &.open{
+      transform: translateY(0);
+      border-radius: .5rem .5rem 0 0;
+    }
+  }
+}

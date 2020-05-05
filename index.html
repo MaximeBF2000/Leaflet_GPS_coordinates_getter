@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map leaflet</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <!-- HTML -->
+  <div id="map"></div>
+  <div class="copied_msg">
+    Copied to clipboard !
+  </div>
+  <div class="coords_box">
+    <span class="mobile_arrow">
+      <i class="fas fa-angle-up"></i>
+    </span>
+    <h1>GPS Coordinates Getter</h1>
+    <div class="form">
+      <div class="form_group">
+        <label for="lat">Latitude :</label>
+        <input type="text" name="lat" id="lat" />
+      </div>
+      <div class="form_group">
+        <label for="long">Longitude :</label>
+        <input type="text" name="long" id="lon" />
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- JS -->
+  <script src="https://kit.fontawesome.com/2606ff6f13.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+  integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+  crossorigin=""></script>
+  <script src="./app.js" defer></script>
+</body>
+</html>
