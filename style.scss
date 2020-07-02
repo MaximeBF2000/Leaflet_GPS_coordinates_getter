@@ -15,6 +15,11 @@ $bp-mobile: 470px;
   width: 100%; 
   height: 100vh;
   cursor: crosshair;
+  border: 3px solid black;
+}
+
+.ap-name{
+  color: #000;
 }
 
 .copied_msg{

@@ -8,6 +8,23 @@ const mobile_arrow_icon = document.querySelector(".mobile_arrow i")
 const coords_box = document.querySelector(".coords_box")
 
 
+// Address to GPS Coords
+const AUTOCOMPLETE_APP_ID = "plX06UFD072B"
+const AUTOCOMPLETE_API_KEY = "0666e0dda3e3ca871d3085176c6470ac"
+
+const placesAutocomplete = places({
+  appId: AUTOCOMPLETE_APP_ID,
+  apiKey: AUTOCOMPLETE_API_KEY,
+  container: document.querySelector('#address'),
+  type: "address"
+})
+
+placesAutocomplete.on('change', e => {
+  lon_input.value = e.suggestion.latlng.lng
+  lat_input.value = e.suggestion.latlng.lat
+})
+
+
 // Map Initialisation ---------------------------------------------------------------------
 const options = {
   lat: 45.717369079589844,
