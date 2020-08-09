@@ -33,7 +33,7 @@ placesAutocomplete.on('change', e => {
   options.lat = e.suggestion.latlng.lat
   options.lon = e.suggestion.latlng.lng
 
-  mymap.setView([options.lat, options.long], options.zoom)
+  mymap.setView([options.lat, options.lon], options.zoom)
 })
 
 
