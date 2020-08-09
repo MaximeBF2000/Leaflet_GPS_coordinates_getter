@@ -7,8 +7,15 @@ const mobile_arrow = document.querySelector(".mobile_arrow")
 const mobile_arrow_icon = document.querySelector(".mobile_arrow i")
 const coords_box = document.querySelector(".coords_box")
 
+// Map initital options
+const options = {
+  lat: 45.717369079589844,
+  long: 4.7925190925598145,
+  zoom: 12.5
+}
 
-// Address to GPS Coords
+
+// Address to GPS Coords setup
 const AUTOCOMPLETE_APP_ID = "plX06UFD072B"
 const AUTOCOMPLETE_API_KEY = "0666e0dda3e3ca871d3085176c6470ac"
 
@@ -22,17 +29,18 @@ const placesAutocomplete = places({
 placesAutocomplete.on('change', e => {
   lon_input.value = e.suggestion.latlng.lng
   lat_input.value = e.suggestion.latlng.lat
+
+  options.lat = e.suggestion.latlng.lat
+  options.lon = e.suggestion.latlng.lng
+
+  mymap.setView([options.lat, options.long], options.zoom)
 })
 
 
 // Map Initialisation ---------------------------------------------------------------------
-const options = {
-  lat: 45.717369079589844,
-  long: 4.7925190925598145,
-  zoom: 12.5
-}
 
-const mymap = L.map('map').setView([options.lat, options.long], options.zoom)
+const mymap = L.map('map')
+mymap.setView([options.lat, options.long], options.zoom)
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
